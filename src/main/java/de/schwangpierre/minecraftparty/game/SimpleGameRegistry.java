@@ -12,6 +12,7 @@ import java.util.List;
 
 public class SimpleGameRegistry implements GameRegistry {
 
+    private int gameIndex = -1;
     private List<Game> games = new ArrayList<>();
 
     public void registerGame(Game game) {
@@ -31,7 +32,11 @@ public class SimpleGameRegistry implements GameRegistry {
     }
 
     public void nextGame() {
-
+        if(gameIndex > games.size()) {
+            //TODO: stop round
+        }
+        gameIndex++;
+        startGame(games.get(gameIndex));
     }
 
     public List<Game> getGames() {
